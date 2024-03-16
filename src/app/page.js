@@ -1,95 +1,98 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+"use client"
+import { useEffect, useState } from 'react';
+import './page.css'
+import ReactTypingEffect from 'react-typing-effect';
+import Image from 'next/image';
+import { FaLinkedin } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
+import {useMyImage} from './customHooks/usemyImage'
+async function fetchMeme() {
+  const res = await fetch("https://api.imgflip.com/get_memes");
+  const data = await res.json();
+  return data;
 }
+const Page = () => {
+  const [data, setData] = useState([]);
+  const [list,setList] = useState(3);
+  const [loading,setLoading] = useState(false);
+  useEffect(() => {
+      const fetchData = async () => {
+          const memeData = await fetchMeme();
+          setData(memeData.data.memes);
+      };
+      fetchData();
+  }, []);
+
+  function hoverhandle(index){
+  if(typeof window !=="undefined"){
+    const an = document.getElementsByClassName("meme-button")
+    an[index].classList.remove("hide-me")
+  }
+}
+function removerhover(index){
+  if(typeof window !=="undefined"){
+    const an = document.getElementsByClassName("meme-button")
+    an[index].classList.add("hide-me")
+  }
+}
+
+
+useEffect(() => {
+  let timeoutId;
+  const handleScroll = () => {
+    if(list>=data.length){
+      return
+    }else{
+    //console.log("window.innerHeight + window.scrollY", (window.innerHeight + window.scrollY));
+    //console.log("document.body.offsetHeight", document.body.offsetHeight)
+    //if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      setLoading(true);
+      timeoutId = setTimeout(() => {
+        setList(prev => prev + 3);
+        setLoading(false);
+      }, 1000);
+    //}
+  };
+  }
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    clearTimeout(timeoutId);
+  };
+}, [loading,list,data.length]);
+
+//navigation
+const router  = useRouter();
+const handelNavigate = (item)=>{
+  localStorage.setItem("image",item);
+  router.push('/create-my-own-meme-token/uranus')
+}
+  return (
+    <div className='meme-landing'>
+    <div className='main-head'>
+      <h1>Uranus | A crypto meme token web app! <span id="wave">👋</span></h1>
+      <section><ReactTypingEffect eraseSpeed={1} style={{"fontSize":"2rem"}} cursor="/"
+        text={["Create your own token", "Share it with the world!"]}
+      /></section>
+    </div>
+    <div className='meme-list'>
+    {
+      data&&data.slice(0,list).map((item,index)=>{
+        return(
+      <div onMouseEnter={()=>hoverhandle(index)} onMouseLeave={()=>removerhover(index)} key={index}>
+      <div key={index} className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src={item.url} alt="meme-token" /> </div>
+      <button onClick={()=>handelNavigate(item.url)} className='meme-button hide-me'>Create Token</button>
+      </div>
+      )
+    })
+    }
+    {loading&&<h2 className='loading'>Loading Please take your seat..</h2>}
+    </div>
+    <section className='footer'>
+      <p>Connect with me on </p><FaLinkedin onClick={()=>window.open("https://linkedin.com/in/vivekbhardwaj-developer")} size={'3rem'} />
+    </section>
+    </div>
+)}
+
+export default Page

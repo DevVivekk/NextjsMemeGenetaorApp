@@ -1,0 +1,107 @@
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-5%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(40%);
+      opacity: 1;
+    }
+  }
+  @keyframes slideDownButton {
+    0% {
+      transform: translateY(-5%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(80%);
+      opacity: 1;
+    }
+  }
+.meme-landing{
+    min-height: 120vh;
+    overflow-y: scroll;
+    overflow-x: hidden !important;
+    height: auto;
+    width: 100vw;
+    min-width: 50rem;
+    color: white;
+    background-image: linear-gradient(black,navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#wave{
+    font-size: 6rem;
+    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+    animation-duration: 2.5s;        /* Change to speed up or slow down */
+    animation-iteration-count: infinite;  /* Never stop waving :) */
+    transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+    display: inline-block;      /* Pivot around the bottom-left palm */
+}
+.main-head{
+    width: 100vw;
+    min-width: 50rem;
+    animation: slideDown 0.5s forwards; /* animation-fill-mode */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-head>h1{
+    font-size: 3rem;
+    margin: 2rem;
+}
+.main-head>section{
+    text-align: center;
+}
+.meme-list{
+    width: 100vw;
+    min-width: 50rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10rem;
+}
+.meme-list>div{
+    position: relative;
+}
+.meme-button{
+    width: 20rem;
+    margin-left: 2rem;
+    height: 4rem;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 4rem;
+    animation: slideDownButton 0.5s forwards; /* animation-fill-mode */
+    box-shadow: 0px 0px 5px white;
+    cursor: pointer;
+}
+.hide-me{
+    display: none;
+}
+.loading{
+  margin: 2rem;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:10px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.footer>p{
+  font-size: 1.2rem;
+}
