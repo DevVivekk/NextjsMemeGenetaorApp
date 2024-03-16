@@ -29,9 +29,8 @@
     }
   }
 .meme-landing{
-    min-height: 120vh;
+    min-height: 100vh;
     overflow-y: scroll;
-    overflow-x: hidden !important;
     height: auto;
     width: 100vw;
     min-width: 50rem;
@@ -42,7 +41,7 @@
     align-items: center;
 }
 #wave{
-    font-size: 6rem;
+    font-size: 4.5rem;
     animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
     animation-duration: 2.5s;        /* Change to speed up or slow down */
     animation-iteration-count: infinite;  /* Never stop waving :) */

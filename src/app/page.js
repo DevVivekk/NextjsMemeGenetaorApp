@@ -5,7 +5,6 @@ import ReactTypingEffect from 'react-typing-effect';
 import Image from 'next/image';
 import { FaLinkedin } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
-import {useMyImage} from './customHooks/usemyImage'
 async function fetchMeme() {
   const res = await fetch("https://api.imgflip.com/get_memes");
   const data = await res.json();
@@ -13,7 +12,7 @@ async function fetchMeme() {
 }
 const Page = () => {
   const [data, setData] = useState([]);
-  const [list,setList] = useState(3);
+  const [list,setList] = useState(8);
   const [loading,setLoading] = useState(false);
   useEffect(() => {
       const fetchData = async () => {
