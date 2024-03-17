@@ -14,10 +14,8 @@ const MemePage = () => {
         const img= localStorage.getItem("image");
         setMyimage(img)       
     },[])
-    console.log(memes)
     const memeref = useRef(null);
     const captureAndDownload = () => {
-      console.log("clic")
       const element = memeref.current;
   
       if (!element || memes.length<=0) {
@@ -103,7 +101,7 @@ const MemePage = () => {
           </section>
           :
           <section>
-            <div style={{"width":"35rem","height":"25rem","minWidth":"auto","fontSize":"1rem"}} ref={memeref} className="meme-page">
+            <div style={{"width":"35rem","height":"auto","minWidth":"auto","fontSize":"1rem"}} ref={memeref} className="meme-page">
                 {/* Display meme data here */}
                 {myimage && (<div className="meme-image" style={{"width":"35rem","height":"25rem"}}><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div>)}
                 {
