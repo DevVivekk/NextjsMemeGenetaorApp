@@ -18,7 +18,7 @@ h1{
 h3{
     font-size: 2.2rem;
     position: absolute;
-    width: 23rem;
+    width: 24rem;
 }
 .meme-page{
     height: auto;
@@ -72,7 +72,8 @@ select{
 }
 .meme-image{
     position: relative;
-    width: 26rem;
+    width: 20rem;
+    display: inline;
     height: 25rem;
 }
 section{
