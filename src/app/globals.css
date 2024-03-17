@@ -13,19 +13,3 @@ html{
       font-size: 45%;
     }
 }
-.meme-image{
-    border: none;
-    position: relative;
-    width: 21rem;
-    height: 21rem;
-    margin: 2rem;
-}
-.meme-image>img{
-    overflow: hidden;
-    transition: 1s all ease;
-}
-.meme-image>img:hover{
-    scale: 1.2;
-    filter: blur(2px);
-}
-

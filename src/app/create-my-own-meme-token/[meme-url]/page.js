@@ -23,7 +23,7 @@ const MemePage = () => {
   
       // Use html2canvas to capture the content of the div
       html2canvas(element, {
-      scale: 8, // Adjust the scale for better image quality
+      scale: 1.5, // Adjust the scale for better image quality
       }).then((canvas) => {
         // Convert the canvas to a data URL
         const dataUrl = canvas.toDataURL();
@@ -53,17 +53,15 @@ const MemePage = () => {
     return (
         <div className="meme-div">
         <h1>Add, drag & place your text, download and Share your own Crypto meme token!</h1>
-            <div ref={memeref} className="meme-page" style={{"width":"40rem","height":"auto","margin":"2rem"}}>
+            <div ref={memeref} className="meme-page">
                 {/* Display meme data here */}
-                {myimage && (<><Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"contain"}} src={myimage} alt="meme-token" /> </div></Draggable></>)}
+                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
                 {
-                    memes&&memes.map((item)=>{
+                    memes&&memes.map((item,index)=>{
                         return(
-                    <>
-                      <Draggable>
+                      <Draggable key={index}>
                      <h3>{item}</h3>
                       </Draggable>
-                      </>
                         )
                     })
                 }

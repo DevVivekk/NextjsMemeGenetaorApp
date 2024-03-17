@@ -15,11 +15,17 @@ h1{
     margin: 3rem;
 }
 h3{
-    font-size: 2rem;
-    margin: 2rem;
+    font-size: 2.2rem;
+    position: absolute;
 }
 .meme-page{
+    height: auto;
+    width: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
     min-width: 50rem;
+    position: relative;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     border-radius: 4px;
 }
@@ -55,11 +61,4 @@ input{
     position: relative;
     width: 22rem;
     height: 22rem;
-    filter: blur(0px) !important;
-}
-.meme-image>img{
-    filter: blur(0px) !important;
-}
-.meme-image>img:hover{
-    filter: blur(0px) !important;
 }
