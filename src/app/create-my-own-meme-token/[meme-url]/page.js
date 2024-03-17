@@ -8,12 +8,16 @@ const MemePage = () => {
     const [myimage,setMyimage] = useState("");
     const [meme,setMeme] = useState("");
     const [memes,setMemes] = useState([]);
+    const [color,setColor] = useState("");
+    const [cond,setCond] = useState("")
     useEffect(()=>{
         const img= localStorage.getItem("image");
         setMyimage(img)       
     },[])
+    console.log(memes)
     const memeref = useRef(null);
     const captureAndDownload = () => {
+      console.log("clic")
       const element = memeref.current;
   
       if (!element || memes.length<=0) {
@@ -53,6 +57,14 @@ const MemePage = () => {
     return (
         <div className="meme-div">
         <h1>Add, drag & place your text, download and Share your own Crypto meme token!</h1>
+        <h2>Choose any of the template. 👇</h2>
+        <select onChange={(e)=>setCond(e.target.value)}>
+          <option value={"left"}>Left align Image</option>
+          <option value={"right"}>Right align Image</option>
+          <option value={"center"}>Centered align Image</option>
+        </select>
+        {cond==="left"?
+        <section>
             <div ref={memeref} className="meme-page">
                 {/* Display meme data here */}
                 {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
@@ -69,6 +81,48 @@ const MemePage = () => {
             <input value={meme} onChange={(e)=>setMeme(e.target.value)} type="text" placeholder="Enter your meme"></input>
             <button id="text-btn" onClick={()=>handleClick()}>Add Text</button>
             <button onClick={()=>captureAndDownload()}>Download</button>
+          </section>
+          :cond==="right"?
+          <section>
+            <div ref={memeref} style={{"justifyContent":"flex-end"}} className="meme-page">
+                {/* Display meme data here */}
+                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
+                {
+                    memes&&memes.map((item,index)=>{
+                        return(
+                      <Draggable key={index}>
+                     <h3>{item}</h3>
+                      </Draggable>
+                        )
+                    })
+                }
+            </div>
+            <input value={meme} onChange={(e)=>setMeme(e.target.value)} type="text" placeholder="Enter your meme"></input>
+            <button id="text-btn" onClick={()=>handleClick()}>Add Text</button>
+            <button onClick={()=>captureAndDownload()}>Download</button>
+          </section>
+          :
+          <section>
+            <div style={{"width":"35rem","height":"25rem","minWidth":"auto","fontSize":"1rem"}} ref={memeref} className="meme-page">
+                {/* Display meme data here */}
+                {myimage && (<div className="meme-image" style={{"width":"35rem","height":"25rem"}}><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div>)}
+                {
+                    memes&&memes.map((item,index)=>{
+                        return(
+                      <Draggable key={index}>
+                     <h3 style={color?{color:color}:{color:"black"}}>{item}</h3>
+                      </Draggable>
+                        )
+                    })
+                }
+            </div>
+            <input value={meme} onChange={(e)=>setMeme(e.target.value)} type="text" placeholder="Enter your meme"></input><br />
+            <label htmlFor="colorid">Choose Your color</label>
+            <input type="color" id="colorid" onChange={(e)=>setColor(e.target.value)} placeholder="choose text color"/>
+            <button id="text-btn" onClick={()=>handleClick()}>Add Text</button>
+            <button onClick={()=>captureAndDownload()}>Download</button>
+          </section>
+        }
         </div>
     );
 }
