@@ -165,20 +165,17 @@ h2::before{
     background-color:purple;
 }
 .memes{
-    width: 100vw;
-    min-width: 50rem;
     display: flex;
     flex-direction: row;
-    overflow: visible;
+    overflow: hidden;
     gap: 20px;
-    white-space: nowrap;;
+    width: 100vw;
+    min-width: 50rem;
 }
 .uranus-meme-div {
     display: flex;
-    overflow: visible;
     flex-direction: row;
-    gap: 20px;
-    white-space: nowrap;
+    gap: 10px;
     animation: slide 40s linear infinite; 
 }
 .memes:hover .uranus-meme-div{
@@ -198,21 +195,20 @@ footer{
     margin-top: 10rem;
     width: 100vw;
     min-width: 50rem;
-    min-height: 30rem;
-    height: auto;
     background-color: black;
     color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 10px;
+    gap: 25px;
 }
 footer>div{
     margin-top: 6rem;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 15rem;
 }
 footer>div>b{
     font-size: 1.5rem;
