@@ -12,6 +12,14 @@
         box-shadow: 0 6px 10px rgba(167, 223, 13, 0.3);
     }
 }
+@keyframes slide{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
 .home-div{
     width: 100vw;
     min-width: 50rem;
@@ -143,6 +151,49 @@ h2::before{
     height: 0.2rem;
     background-color: black;
 }
+.uranus-memes{
+    position: relative;
+    margin-top:8rem;
+    margin-bottom: 9rem;
+}
+.uranus-memes::before{
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    width: 32rem;
+    height: 0.2rem;
+    background-color:purple;
+}
+.memes{
+    width: 100vw;
+    min-width: 50rem;
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+    gap: 20px;
+    white-space: nowrap;;
+}
+.uranus-meme-div {
+    display: flex;
+    overflow: visible;
+    flex-direction: row;
+    gap: 20px;
+    white-space: nowrap;
+    animation: slide 40s linear infinite; 
+}
+.memes:hover .uranus-meme-div{
+    animation-play-state: paused;
+}
+  .meme-div-image-slide {
+    overflow: visible;
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+    transition: all ease 0.5s ;
+  }
+  .meme-div-image-slide:hover{
+    filter: drop-shadow(3px 10px 4px #4444dd);
+  }
 footer{
     margin-top: 10rem;
     width: 100vw;
@@ -180,4 +231,12 @@ footer>div>section{
     align-items: center;
     justify-content: space-around;
     gap: 10px;
+}
+.customspan{
+    background: linear-gradient(135deg, #0156ff 0%, #fa05e1 100%);
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip:text;
+    color: transparent;
 }
