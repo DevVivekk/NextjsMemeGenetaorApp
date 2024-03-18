@@ -5,6 +5,7 @@ import ReactTypingEffect from 'react-typing-effect';
 import Image from 'next/image';
 import { FaLinkedin } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
+import { MdOutlineArrowOutward } from "react-icons/md";
 async function fetchMeme() {
   const res = await fetch("https://api.imgflip.com/get_memes");
   const data = await res.json();
@@ -74,6 +75,7 @@ const handelNavigate = (item)=>{
       <section><ReactTypingEffect eraseSpeed={1} style={{"fontSize":"2rem"}} cursor="/"
         text={["Create your own token", "Share it with the world!"]}
       /></section>
+    <h2 onClick={()=>window.open("/home")} style={{"fontSize":"2rem"}}>Go the Main Page <MdOutlineArrowOutward size={'2.5rem'} color='white' /></h2>
     </div>
     <div className='meme-list'>
     {

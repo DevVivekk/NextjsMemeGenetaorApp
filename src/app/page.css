@@ -41,6 +41,20 @@
     align-items: center;
     justify-content: center;
 }
+h2{
+  font-size: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+h2::before{
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  width:17rem;
+  height: 0.2rem;
+  background-color: red;
+}
 #wave{
     font-size: 4.5rem;
     animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
