@@ -65,7 +65,7 @@ const MemePage = () => {
         <section>
             <div ref={memeref} className="meme-page">
                 {/* Display meme data here */}
-                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"contain"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
+                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
                 {
                     memes&&memes.map((item,index)=>{
                         return(
@@ -84,7 +84,7 @@ const MemePage = () => {
           <section>
             <div ref={memeref} style={{"justifyContent":"flex-end"}} className="meme-page">
                 {/* Display meme data here */}
-                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"contain"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
+                {myimage && (<Draggable><div className="meme-image"><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading='lazy' fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div></Draggable>)}
                 {
                     memes&&memes.map((item,index)=>{
                         return(
@@ -103,7 +103,7 @@ const MemePage = () => {
           <section>
             <div style={{"width":"35rem","height":"auto","minWidth":"auto","fontSize":"1rem"}} ref={memeref} className="meme-page">
                 {/* Display meme data here */}
-                {myimage && (<div className="meme-image" style={{"width":"35rem","height":"36rem"}}><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"contain"}} src={myimage} alt="meme-token" /> </div>)}
+                {myimage && (<div className="meme-image" style={{"width":"35rem","height":"36rem"}}><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src={myimage} alt="meme-token" /> </div>)}
                 {
                     memes&&memes.map((item,index)=>{
                         return(
