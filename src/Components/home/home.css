@@ -360,7 +360,7 @@ footer>div{
     margin-bottom: 10rem;
 }
 footer>div>b{
-    font-size: 1.5rem;
+    font-size: 1.9rem;
 }
 footer>div>ul{
     display: flex;
@@ -369,6 +369,7 @@ footer>div>ul{
 }
 li{
     list-style-type: none;
+    font-size: 1.5rem;
 }
 footer>div>section{
     display: flex;
@@ -376,6 +377,7 @@ footer>div>section{
     align-items: center;
     justify-content: space-around;
     gap: 10px;
+    font-size: 1.5rem;
 }
 .customspan{
     background: linear-gradient(135deg, #0156ff 0%, #fa05e1 100%);
