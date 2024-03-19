@@ -368,7 +368,9 @@ footer>div>ul{
     gap: 10px;
 }
 li{
-    list-style-type: none;
+  list-style-type: none;
+}
+footer>div>ul>li{
     font-size: 1.5rem;
 }
 footer>div>section{
