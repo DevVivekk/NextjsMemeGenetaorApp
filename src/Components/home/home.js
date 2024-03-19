@@ -58,15 +58,15 @@ const Home = () => {
     <BsLayoutSidebarInsetReverse size={'3rem'} color='black' />
     </div>
     </header>
-    <motion.div initial={{x:-"-100%",opacity:0}} whileInView={{x:0,opacity:1}} exit={{x:0,opacity:1}} transition={{duration:0.5,type:"spring"}} className='main-heading'>
+    <div className='main-heading'>
     <motion.div initial={{rotate:"0deg",scale:0}} animate={{rotate:"360deg",scale:1}} exit={{rotate:"0deg",scale:0}} transition={{duration:0.5,type:"spring"}} className='head-div'><h1>$URANUS Web</h1></motion.div>
     <p className={`${jost.className} para-meme`}>Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1.** This suggests ongoing evolution in your home life and personal growth. 
 Uranus champions individuality, social justice, and authenticity. During its retrograde, focus on living by your values and perhaps engage more actively in humanitarian efforts.
 In 2024, the location of the Sun on the March equinox is in the constellation of Pisces but also on the border of Aquarius. So, **we are slowly moving into a new age, from Pisces to Aquarius**.</p>
-    </motion.div>
+    </div>
     <h2 className={archivo.className}>The Memeifesto</h2>
     <p style={{"marginBottom":"4rem"}} className={`${rubik.className} para-meme`}>Welcome to the wild side of crypto - where memes aren't just dreams, and astrology isn’t just your daily horoscope.</p>
-    <motion.div transition={{delay:0.2}} initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='meme-divs'>
+    <motion.div transition={{delay:0.4}} initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='meme-divs'>
     <div>
     <div className='meme-div-image'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F4d6ff0c5-fb06-41e2-91ea-611a6b227c8f%2FUntitled.png?table=block&id=a49515d9-58bb-4c79-833d-f50cddb5d455&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=2000&userId=&cache=v2" alt="image" /></div>
     <p className={`${josefin.className} meme-div-p`}>Everyone Loves to Pump Uranus more then they like when Uranus Dumps.</p>
@@ -83,11 +83,11 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
     </div>
     </motion.div>
     <h2 style={{"marginTop":"10rem"}} className={`${archivo.className} h2-podcast`}>The Podcast</h2>
-    <motion.div transition={{delay:0.2}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='podcast'>
+    <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='podcast'>
     <iframe width="auto" height="auto" src="https://www.youtube.com/embed/snbTCWL6rxo?si=VCNv75Zpfjw0UEW9&amp;start=12" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
     </motion.div>
       <h2 className={`${archivo.className} uranus-memes`}><span className={'customspan'}>$URANUS</span> Memes for You!</h2>
-      <motion.div transition={{delay:0.2}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='memes'>
+      <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='memes'>
       <div className='uranus-meme-div'>
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2Fbf2f4077-f535-4195-9efb-52756a98070f%2FUntitled.png?table=block&id=89bfc120-2c14-43d7-9470-835afc89abb2&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=1420&userId=&cache=v2" alt="image" /></div>
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F8b5aca2f-a69d-45ae-b403-a1a7db496f98%2FUntitled.png?table=block&id=ad352b03-5c03-471b-a134-d6f2c7ffcb9b&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=660&userId=&cache=v2" alt="image" /></div>
@@ -105,7 +105,7 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F1790eb96-29b6-4fb6-9c90-e7c58c2b19c0%2FUntitled.png?table=block&id=de2220c1-8ccd-426a-9fad-7efe5266ce14&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=1290&userId=&cache=v2" alt="image" /></div>
       </div>
       </motion.div>
-      <motion.div transition={{delay:0.2}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='more-from'>
+      <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='more-from'>
         <div>
         <h2 className={archivo.className}>More From $Uranus 🙋‍♂️</h2>
         </div>
@@ -149,7 +149,7 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
 
       <div>
       <b>Social</b>
-      <section><FaLinkedin onClick={()=>window.open("https://linkedin.com/in/vivekbhardwaj-developer")} size={'2rem'} /><FaFacebookF size={'2rem'} /><FaInstagram size={'2rem'} /></section>
+      <section><FaLinkedin onClick={()=>window.open("#")} size={'2rem'} /><FaFacebookF size={'2rem'} /><FaInstagram size={'2rem'} /></section>
       </div>
 
       <div>

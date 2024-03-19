@@ -91,7 +91,7 @@ const handelNavigate = (item)=>{
     {loading&&<h2 className='loading'>Loading Please take your seat..</h2>}
     </div>
     <section className='footer'>
-      <p>Connect with me on </p><FaLinkedin onClick={()=>window.open("https://linkedin.com/in/vivekbhardwaj-developer")} size={'3rem'} />
+      <p>Connect with me on </p><FaLinkedin onClick={()=>window.open("#")} size={'3rem'} />
     </section>
     </div>
 )}
