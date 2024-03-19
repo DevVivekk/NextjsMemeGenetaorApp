@@ -1,0 +1,22 @@
+.main-sidebar{
+    width: 35rem;
+    height: auto;
+    min-height: 100%;
+    background-color: yellow;
+    color: black;
+    position: fixed;
+    top: 0rem;
+    right: 0rem;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: all ease 0.5s;
+}
+.main-sidebar>ul{
+    display: flex;
+    height: 100vh;
+    font-size: 1.7rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}

@@ -1,3 +1,8 @@
+@media screen and (max-width:759px) {
+    .more-from-divs>div:nth-child(2){
+        margin-top: 0rem !important;
+      }
+}
 @keyframes aesthetic-pulse {
     0% {
         background-color: #3498db;
@@ -19,6 +24,11 @@
     to{
         transform: translateX(-100%);
     }
+}
+main{
+  width: 100vw;
+  min-width: 50rem;
+  height: auto;
 }
 .home-div{
     width: 100vw;
@@ -71,6 +81,28 @@ header{
     border-radius: 3px;
     animation: aesthetic-pulse 2.5s infinite alternate;
 }
+.sidebar{
+  top: 5rem;
+  right: 3rem;
+  z-index: 1;
+  width: 6rem;
+  height: 6rem;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: fixed;
+  transition: all ease 0.5s;
+  cursor: pointer;
+}
+.sidebar:hover{
+  background-color: hotpink;
+}
+.sidebar>svg:hover{
+  color: white !important;
+}
 .para-meme{
     font-size: 1.8rem;
     word-spacing: 0.4rem;
@@ -103,6 +135,8 @@ h2::before{
     align-items: center;
     justify-content: center;
     gap: 20px;
+    width: 100vw;
+    min-width: 50rem;
 }
 .meme-divs>div{
     width: 40rem;
@@ -191,6 +225,115 @@ h2::before{
   .meme-div-image-slide:hover{
     filter: drop-shadow(3px 10px 4px #4444dd);
   }
+
+
+  .more-from{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    min-width: 50rem;
+  }
+  .more-from-divs{
+    display: flex;
+    width:100vw !important;
+    min-width: 50rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 30rem;
+    gap: 30px;
+  }
+  .more-from-divs>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid darkblue;
+    border-radius: 5px;
+    height: 20rem;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .more-from-divs>div:nth-child(2){
+    margin-top: 13rem;
+  }
+  .more-from-divs>div>h3{
+    font-size: 2rem;
+  }
+  .more-from-divs>div>button{
+    width: 30rem;
+    height: 4rem;
+    margin-top: 3rem;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    background-color: orange;
+    color: navy;
+    transition: all ease 0.5s;
+    cursor: pointer;
+  }
+  .more-from-divs>div>button:hover{
+    color: white;
+    background-color: #0156ff;
+  }
+  .more-from-divs>div>button>svg{
+    transition: all ease 0.5s;
+  }
+  .more-from-divs>div>button>svg:hover{
+    color: white;
+    transform: translateY(-40%);
+  }
+  .more-info{
+    clip-path: polygon(0 1%, 100% 0, 99% 73%, 0% 100%);
+    background-color: #0156ff;
+    width: 100vw;
+    min-width: 50rem;
+    margin-top: 10rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .head-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 2rem 2rem 2rem;
+    padding: 2rem;
+    gap: 20px;
+    width: 100vw;
+    min-width: 50rem;
+  }
+  .more-info-h2{
+    color: white;
+  }
+  .subscribe{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5rem;
+  }
+  .subscribe>svg{
+    position: absolute;
+    right: 3rem;
+    transition: all ease 1s;
+    cursor: pointer;
+  }
+  .subscribe>svg:hover{
+    transform: translateX(50%);
+  }
+  .info-input{
+    width: 48rem;
+    height: 5rem;
+    font-size: 2rem;
+    border: 1px solid black;
+  }
 footer{
     margin-top: 10rem;
     width: 100vw;
@@ -201,6 +344,7 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    position: relative;
     gap: 25px;
 }
 footer>div{
@@ -208,7 +352,7 @@ footer>div{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
 }
 footer>div>b{
     font-size: 1.5rem;

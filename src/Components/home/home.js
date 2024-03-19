@@ -1,9 +1,8 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Jost,Josefin_Sans,Lexend,Archivo_Black,Rubik} from 'next/font/google'
 const jost = Jost({subsets:["latin"],weight:"400",style:"normal",variable:'--font-jost'})
 const josefin = Josefin_Sans({subsets:["latin"],weight:"400",style:"normal"})
-const lexind = Lexend({subsets:["latin"],weight:"600",style:"normal"})
 const archivo = Archivo_Black({subsets:["latin"],weight:"400",style:"normal"});
 const rubik = Rubik({subsets:["latin"],weight:"500",style:"normal"});
 import { FaLinkedin } from "react-icons/fa";
@@ -12,9 +11,34 @@ import { FaInstagram } from "react-icons/fa";
 import './home.css'
 import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation';
+import { SlEnvolopeLetter } from "react-icons/sl";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
+import Sidebar from '@/utils/sidebar/sidebar'
+import Notify from '@/utils/notification/notify'
 const Home = () => {
+  const [hide,setHide] = useState(true);
+  const [index,setIndex] = useState(0);
+  const handlesidebar = ()=>{
+      setHide(!hide)
+  }
+  const [notify,setNotify] = useState(true);
+  useEffect(()=>{
+    if(index>=9){
+      setIndex(0);
+    }
+    let timeinterval;
+    timeinterval = setInterval(()=>{
+      setIndex((prev)=>prev+1) 
+        setNotify((prev)=>!prev);
+    },2500)
+    return ()=>{clearInterval(timeinterval)}
+  },[notify,index])
   return (
+    <main>
     <div className='home-div'>
+     <Sidebar hide={hide} />
     <header>
       <div className='home-image'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src="https://images.unsplash.com/photo-1639921884918-8d28ab2e39a4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600" alt="image" /></div>
       <div className='home-image-icon'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f31a.svg" alt="image" /></div>
@@ -28,6 +52,9 @@ const Home = () => {
       style={{ fontSize: '2em', display: 'inline-block' }}
       repeat={Infinity}
     />
+    </div>
+    <div onClick={()=>handlesidebar()} className='sidebar'>
+    <BsLayoutSidebarInsetReverse size={'3rem'} color='black' />
     </div>
     </header>
     <div className='main-heading'>
@@ -77,6 +104,30 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F1790eb96-29b6-4fb6-9c90-e7c58c2b19c0%2FUntitled.png?table=block&id=de2220c1-8ccd-426a-9fad-7efe5266ce14&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=1290&userId=&cache=v2" alt="image" /></div>
       </div>
       </div>
+      <div className='more-from'>
+        <div>
+        <h2 className={archivo.className}>More From $Uranus 🙋‍♂️</h2>
+        </div>
+        <div className='more-from-divs'>
+          <div>
+            <h3>Create Your Own Meme with $Uranus</h3>
+            <button onClick={()=>window.open("https://uranus-meme-token.vercel.app")}>Visit <MdOutlineArrowOutward size={'2rem'}  /></button>
+          </div>
+          <div>
+            <h3>Leave a secret feedback for $Uranus</h3>
+            <button onClick={()=>window.open("https://yourtruewords.com/uranusMemeToken")}>Visit <MdOutlineArrowOutward size={'2rem'}  /></button>
+          </div>
+        </div>
+      </div>
+      <div className='more-info'>
+        <div className='head-info'>
+          <h2 className='more-info-h2'>Subscribe to $URANUS Newsletter</h2><SlEnvolopeLetter color='white' size={'3rem'} />
+        </div>
+        <div className='subscribe'>
+        <input className='info-input' type='text' placeholder='Enter Your Email' />
+        <FaArrowRightLong size={'3rem'} />
+        </div>
+      </div>
     <footer>
       <div>
       <b>Partners</b>
@@ -106,6 +157,8 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
       </div>
     </footer>
     </div>
+    <Notify index={index} notify={notify} />
+    </main>
   )
 }
 
