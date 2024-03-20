@@ -88,7 +88,7 @@ header{
   z-index: 1;
   width: 6rem;
   height: 6rem;
-  background-color: yellow;
+  background-color: orange;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +142,7 @@ h2::before{
 .meme-divs>div{
     width: 40rem;
     height: 40rem;
-    background-color: red;
+    background-color: cornflowerblue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,12 +153,6 @@ h2::before{
 }
 .meme-divs>div:hover{
     border: 2px solid black;
-}
-.meme-divs>div:nth-child(1){
-    background-color: blueviolet !important;
-}
-.meme-divs>div:nth-child(2){
-    background-color: cornflowerblue !important;
 }
 .meme-div-p{
     font-size: 2rem;

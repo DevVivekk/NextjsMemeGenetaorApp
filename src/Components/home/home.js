@@ -28,11 +28,11 @@ const Home = () => {
   useEffect(()=>{
     if(index>=9){
       setIndex(0);
-    }
+    } 
     let timeinterval;
     timeinterval = setInterval(()=>{
-      setIndex((prev)=>prev+1) 
-        setNotify((prev)=>!prev);
+      setIndex((prev)=>prev+1)
+      setNotify((prev)=>!prev);
     },2500)
     return ()=>{clearInterval(timeinterval)}
   },[notify,index])
@@ -66,7 +66,7 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
     </div>
     <h2 className={archivo.className}>The Memeifesto</h2>
     <p style={{"marginBottom":"4rem"}} className={`${rubik.className} para-meme`}>Welcome to the wild side of crypto - where memes aren't just dreams, and astrology isn’t just your daily horoscope.</p>
-    <motion.div transition={{delay:0.4}} initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='meme-divs'>
+    <motion.div transition={{delay:0.3}} initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='meme-divs'>
     <div>
     <div className='meme-div-image'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}} src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F4d6ff0c5-fb06-41e2-91ea-611a6b227c8f%2FUntitled.png?table=block&id=a49515d9-58bb-4c79-833d-f50cddb5d455&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=2000&userId=&cache=v2" alt="image" /></div>
     <p className={`${josefin.className} meme-div-p`}>Everyone Loves to Pump Uranus more then they like when Uranus Dumps.</p>
@@ -82,12 +82,12 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
     <p className={`${josefin.className} meme-div-p`}>Hold onto Uranus!</p>
     </div>
     </motion.div>
-    <h2 style={{"marginTop":"10rem"}} className={`${archivo.className} h2-podcast`}>The Podcast</h2>
-    <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='podcast'>
+    <h2 style={{"marginTop":"10rem"}} className={`${archivo.className} h2-podcast`}>All In On Uranus</h2>
+    <motion.div transition={{delay:0.3}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='podcast'>
     <iframe width="auto" height="auto" src="https://www.youtube.com/embed/snbTCWL6rxo?si=VCNv75Zpfjw0UEW9&amp;start=12" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
     </motion.div>
       <h2 className={`${archivo.className} uranus-memes`}><span className={'customspan'}>$URANUS</span> Memes for You!</h2>
-      <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='memes'>
+      <motion.div transition={{delay:0.3}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='memes'>
       <div className='uranus-meme-div'>
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2Fbf2f4077-f535-4195-9efb-52756a98070f%2FUntitled.png?table=block&id=89bfc120-2c14-43d7-9470-835afc89abb2&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=1420&userId=&cache=v2" alt="image" /></div>
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F8b5aca2f-a69d-45ae-b403-a1a7db496f98%2FUntitled.png?table=block&id=ad352b03-5c03-471b-a134-d6f2c7ffcb9b&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=660&userId=&cache=v2" alt="image" /></div>
@@ -105,7 +105,7 @@ In 2024, the location of the Sun on the March equinox is in the constellation of
       <div className='meme-div-image-slide'><Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority fill style={{objectPosition:"center",objectFit:"cover"}}  src="https://persistventure.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff78663f8-78b0-4675-9f1f-807e68f53ff1%2F1790eb96-29b6-4fb6-9c90-e7c58c2b19c0%2FUntitled.png?table=block&id=de2220c1-8ccd-426a-9fad-7efe5266ce14&spaceId=f78663f8-78b0-4675-9f1f-807e68f53ff1&width=1290&userId=&cache=v2" alt="image" /></div>
       </div>
       </motion.div>
-      <motion.div transition={{delay:0.4}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='more-from'>
+      <motion.div transition={{delay:0.3}}  initial={{opacity:0}} whileInView={{opacity:1}}  exit={{opacity:1}} className='more-from'>
         <div>
         <h2 className={archivo.className}>More From $Uranus 🙋‍♂️</h2>
         </div>
