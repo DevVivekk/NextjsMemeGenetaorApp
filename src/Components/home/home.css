@@ -49,6 +49,11 @@ main{
     flex-direction: column;
     align-items: center;
 }
+.newspan{
+  color:#0156ff;
+  font-size: 3rem;
+  font-weight: bolder;
+}
 .home-image{
  position: relative;
  width: 100vw;
@@ -114,6 +119,34 @@ header{
 }
 .sidebar>svg:hover{
   color: white !important;
+}
+#largeText{
+  margin-top: 8rem !important;
+  box-sizing: border-box;
+  padding: 3rem;
+  position: relative;
+}
+#largeText::before,
+#largeText::after {
+    content: "";
+    position: absolute;
+    width: calc(50% - 10px); /* Adjust for padding */
+    height: calc(50% - 10px); /* Adjust for padding */
+    border: 2px solid black; /* Border style */
+}
+
+#largeText::before {
+    top: 0;
+    left: 0;
+    border-right: none; /* Remove border on right side */
+    border-bottom: none; /* Remove border on bottom side */
+}
+
+#largeText::after {
+    bottom: 0;
+    right: 0;
+    border-top: none; /* Remove border on top side */
+    border-left: none; /* Remove border on left side */
 }
 .para-meme{
     font-size: 1.8rem;

@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {Jost,Josefin_Sans,Archivo_Black,Rubik} from 'next/font/google'
 const jost = Jost({subsets:["latin"],weight:"400",style:"normal",variable:'--font-jost'})
 const josefin = Josefin_Sans({subsets:["latin"],weight:"400",style:"normal"})
@@ -37,6 +37,65 @@ const Home = () => {
     },2500)
     return ()=>{clearInterval(timeinterval)}
   },[notify,index])
+
+
+  // useEffect(() => {
+  //   const ans = document.getElementById("largeText");
+  //   const words = ans.textContent.split(" ");
+  //   let index = 0;
+  //   let intervalId;
+
+  //   function processWord() {
+  //     if (index < words.length) {
+  //       const word = words[index];
+  //       if (word) {
+  //         const newSpan = document.createElement('span');
+  //         newSpan.className = 'newspan';
+  //         newSpan.textContent = word;
+  //         newSpan.style.fontSize = 'larger'; // You can adjust the font size here
+  //         ans.appendChild(newSpan);
+  //         ans.removeChild(ans.firstChild); // Remove the original word
+  //         index++;
+  //       }
+  //     } else {
+  //       index = 0; // Reset the index to restart from the beginning
+  //     }
+  //   }
+
+  //   intervalId = setInterval(processWord, 1000); // Change the delay time as needed
+
+  //   return () => {
+  //     clearInterval(intervalId); // Cleanup function to stop the loop
+  //   };
+  // }, []);
+  const mywords = "Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1**. This suggests ongoing evolution in your home life and personal growth. Uranus champions individuality, social justice, and authenticity. During its retrograde, focus on living by your values and perhaps engage more actively in humanitarian efforts. In 2024, the location of the Sun on the March equinox is in the constellation of Pisces but also on the border of Aquarius. So, **we are slowly moving into a new age, from Pisces to Aquarius**".split(" ");
+  const words = useMemo(() => mywords, [mywords]);
+  const [pointer,setPointer]  =useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPointer(prevIndex => prevIndex + 1);
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+  
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPointer(prevIndex => (prevIndex + 1) % words.length);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [words]);
+
+  useEffect(() => {
+    const pTag = document.getElementById("largeText");
+    const wordsWithSpan = words.map((word, i) => (
+      i === pointer ?
+      `<span class="newspan">${word}</span>` :
+      word
+    ));
+    pTag.innerHTML = wordsWithSpan.join(' ');
+  }, [pointer,words]);
+
   return (
     <main>
     <div className='home-div'>
