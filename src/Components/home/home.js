@@ -18,6 +18,7 @@ import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
 import Sidebar from '@/utils/sidebar/sidebar'
 import Notify from '@/utils/notification/notify'
 import { motion } from 'framer-motion'
+// import Circlee from '@/utils/circlemotion/circle.js'
 const Home = () => {
   const [hide,setHide] = useState(true);
   const [index,setIndex] = useState(0);
@@ -58,9 +59,10 @@ const Home = () => {
     <BsLayoutSidebarInsetReverse size={'3rem'} color='black' />
     </div>
     </header>
+    {/* <Circlee /> */}
     <div className='main-heading'>
     <motion.div initial={{rotate:"0deg",scale:0}} animate={{rotate:"360deg",scale:1}} exit={{rotate:"0deg",scale:0}} transition={{duration:0.5,type:"spring"}} className='head-div'><h1>$URANUS Web</h1></motion.div>
-    <p className={`${jost.className} para-meme`}>Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1.** This suggests ongoing evolution in your home life and personal growth. 
+    <p id='largeText' className={`${jost.className} para-meme`}>Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1.** This suggests ongoing evolution in your home life and personal growth. 
 Uranus champions individuality, social justice, and authenticity. During its retrograde, focus on living by your values and perhaps engage more actively in humanitarian efforts.
 In 2024, the location of the Sun on the March equinox is in the constellation of Pisces but also on the border of Aquarius. So, **we are slowly moving into a new age, from Pisces to Aquarius**.</p>
     </div>

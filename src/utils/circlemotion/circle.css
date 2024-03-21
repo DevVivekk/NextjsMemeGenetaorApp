@@ -1,0 +1,44 @@
+@keyframes rotate{
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes updown{
+    0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(30px); /* Adjust the lift height as needed */
+      }
+}
+.parent-circle{
+    animation: updown 4s ease-in-out infinite;
+    position: absolute;
+    top: 35rem;
+    z-index: 1;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+}
+.main-circle{
+    width: 40rem;
+    height: 40rem;
+    margin-top: 5rem;
+    border-radius: 50%;
+    background-image: radial-gradient(circle closest-side,navy, black);
+    box-shadow: 0 0 3em black;
+    position: relative;
+    left: 0;
+    animation:rotate 30s linear infinite;
+    z-index: 1;
+}
+.main-circle::before{
+    content: "";
+    width: 5rem;
+    left: 7rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-image: radial-gradient(circle at 70% 30%, navy, blue);
+    position: absolute;
+    animation:rotate 30s linear infinite;
+}
