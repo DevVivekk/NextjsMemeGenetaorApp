@@ -68,24 +68,15 @@ const Home = () => {
   //     clearInterval(intervalId); // Cleanup function to stop the loop
   //   };
   // }, []);
-  const mywords = "Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1**. This suggests ongoing evolution in your home life and personal growth. Uranus champions individuality, social justice, and authenticity. During its retrograde, focus on living by your values and perhaps engage more actively in humanitarian efforts. In 2024, the location of the Sun on the March equinox is in the constellation of Pisces but also on the border of Aquarius. So, **we are slowly moving into a new age, from Pisces to Aquarius**".split(" ");
-  const words = useMemo(() => mywords, [mywords]);
+  const words = "Uranus, the ruler of Aquarius, starts 2024 in retrograde, going direct on **Saturday, January 27**, then retrogrades again on **Sunday, September 1**. This suggests ongoing evolution in your home life and personal growth. Uranus champions individuality, social justice, and authenticity. During its retrograde, focus on living by your values and perhaps engage more actively in humanitarian efforts. In 2024, the location of the Sun on the March equinox is in the constellation of Pisces but also on the border of Aquarius. So, **we are slowly moving into a new age, from Pisces to Aquarius**".split(" ");
   const [pointer,setPointer]  =useState(0);
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setPointer(prevIndex => prevIndex + 1);
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
   
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    let intervalId = setInterval(() => {
       setPointer(prevIndex => (prevIndex + 1) % words.length);
     }, 1000);
-
-    return () => clearInterval(intervalId);
+    return () => {clearInterval(intervalId)};
   }, [words]);
-
   useEffect(() => {
     const pTag = document.getElementById("largeText");
     const wordsWithSpan = words.map((word, i) => (
@@ -95,7 +86,6 @@ const Home = () => {
     ));
     pTag.innerHTML = wordsWithSpan.join(' ');
   }, [pointer,words]);
-
   return (
     <main>
     <div className='home-div'>

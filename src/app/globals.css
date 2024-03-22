@@ -8,6 +8,7 @@ html{
     font-size: 62.5%;
     overflow-x: hidden;
 }
+/* //add one more max width according to device or choice for smooth responsiveness */
 @media screen and (max-width:598px) {
     html{
       font-size: 45%;
