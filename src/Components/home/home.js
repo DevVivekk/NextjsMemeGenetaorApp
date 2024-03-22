@@ -74,7 +74,7 @@ const Home = () => {
   useEffect(() => {
     let intervalId = setInterval(() => {
       setPointer(prevIndex => (prevIndex + 1) % words.length);
-    }, 1000);
+    }, 500);
     return () => {clearInterval(intervalId)};
   }, [words]);
   useEffect(() => {

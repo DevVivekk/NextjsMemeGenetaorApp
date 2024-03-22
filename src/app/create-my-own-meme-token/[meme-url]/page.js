@@ -43,7 +43,6 @@ const MemePage = () => {
         document.body.removeChild(link);
       })
   };
-console.log(pointer);
   const handleClick = ()=>{
     if(!meme){
         alert("Enter your meme first!")
